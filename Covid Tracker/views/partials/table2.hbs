@@ -1,0 +1,28 @@
+<div id="table">
+    <table>
+        {{!-- head --}}
+        <thead>
+            <tr>
+                <th>Country</th>
+                <th>Total Cases</th>
+                <th>Active Cases</th>
+                <th>Total Deaths</th>
+                <th>Crucial</th>
+                <th>Recovered</th>
+                <th>New Cases</th>
+            </tr>
+        </thead>
+        {{!-- body --}}
+        <tbody>
+            <tr class="data_row">
+                <td>{{data.country}} <span class="flag"><img src={{data.countryInfo.flag}}></span> </td>
+                <td>{{data.cases}}</td>
+                <td>{{data.active}}</td>
+                <td>{{data.deaths}}</td>
+                <td>{{data.critical}}</td>
+                <td>{{data.recovered}}</td>
+                <td>{{data.todayCases}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

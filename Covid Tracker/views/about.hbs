@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Page</title>
+    <link rel="stylesheet" href="./styles/about.css">
+    <link rel="stylesheet" href="./styles/nav.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    {{>navbar}}
+    <div class="container">
+        <section class="sec1">
+            <h1>Yash Netankar</h1>
+            <h3>This Site is Designed by <span class="name">Yash Netankar</span></h3>
+            <p>This Site is Designed in Node.Js which provides you all the information about the corona cases over the
+                world.</p>
+            <p>Soon I am Launching a News Feed in the same site. So stay tuned</p>
+        </section>
+        <section class="sec2">
+            <h1>How To Use</h1>
+            <div class="step1">
+                <h2>1]. Data Of All Countries</h2>
+                <p>As soon as the site loads you'll be able to see the covid stats of all countries.</p>
+                <p>The stats are sorted by highest number of cases in indected countries.</p>
+            </div>
+            <div class="step2">
+                <h2>2]. Know Yesterday's Data</h2>
+                <p>Click on the second option <b>Yesterday</b> on the nav on top.</p>
+                <p>This will show you the Yesterday's stats of all covid infected countries.</p>
+            </div>
+            <div class="step3">
+                <h2>3]. Search Countries</h2>
+                <div class="search1">
+                    <h2>⚫Search Specific Countries</h2>
+                    <img src="./images/search1.png" alt="search_box">
+                    <p>You Can search specific countries and will get stats of it </p>
+                </div>
+                <div class="search2">
+                    <h2>⚫Search Multiple Countries</h2>
+                    <img src="./images/search2.png" alt="search_box">
+                    <p>You can search multiple countries and in return you will get stats of searched countries.</p>
+                    <p>Make sure to separate the coutries by ","</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+<script src="./js.js"></script>
+
+</html>

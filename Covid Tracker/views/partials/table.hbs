@@ -1,0 +1,30 @@
+<div id="table">
+    <table>
+        {{!-- head --}}
+        <thead>
+            <tr>
+                <th>Country</th>
+                <th>Total Cases</th>
+                <th>Active Cases</th>
+                <th>Total Deaths</th>
+                <th>Crucial</th>
+                <th>Recovered</th>
+                <th>New Cases</th>
+            </tr>
+        </thead>
+        {{!-- body --}}
+        <tbody>
+            {{#each data as | v k | }}
+            <tr class="data_row">
+                <td>{{v.country}} <span class="flag"><img src={{v.countryInfo.flag}}></span> </td>
+                <td>{{v.cases}}</td>
+                <td>{{v.active}}</td>
+                <td>{{v.deaths}}</td>
+                <td>{{v.critical}}</td>
+                <td>{{v.recovered}}</td>
+                <td>{{v.todayCases}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+{{>head}}
+
+<body>
+    {{>navbar}}
+    <div class="container">
+        <div class="search_div">
+            <input type="text" placeholder="Enter Your City Name" class="cityName">
+            <button class="search_btn" onclick="getWeather()">Search</button>
+        </div>
+        {{!-- Weather app --}}
+        <div class="weather_container">
+            <div class="card">
+                <div class="waves">
+                    <div class="wave wave1"></div>
+                    <div class="wave wave2"></div>
+                    <div class="wave wave3"></div>
+                </div>
+
+                <div class="weather_icon" id="weather">
+                    {{!-- <i class="fas fa-sun"></i> --}}
+                </div>
+
+                <div class="info">
+                    <div class="location">
+                        <i class="fas fa-street-view"></i>
+                        <h4 class="city_country"></h4>
+                    </div>
+                    <div class="time">
+                        <h6 id="date"></h6>
+                    </div>
+                </div>
+
+                <div class="temp_div">
+                    <h2 class="temp"></h2>
+                    <h5 class="min_max"></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {{!-- JAVASCRIPT --}}
+    <script>
+        const date_div = document.getElementById("date");
+        const weather = document.getElementById("weather");
+
+        let temp_status = "";
+
+        //getting weather information
+        const getWeather = async () => {
+            const city = document.querySelector(".cityName").value;
+            if (city !== "") {
+                let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=ef1e1b8bf2be383de5bbfc4473e53618`;
+                let res = await fetch(url);
+                try {
+                    res = await res.json();
+                    document.querySelector(".temp").innerText = res.main.temp;
+                    document.querySelector(".city_country").innerText = `${res.name}, ${res.sys.country}`;
+                    let min_max = `Min ${res.main.temp_min} | Max ${res.main.temp_max}`;
+                    document.querySelector(".min_max").innerText = min_max;
+                    temp_status = res.weather[0].main;
+                    console.log(res);
+
+                    if (temp_status == "Sunny") {
+                        weather.innerHTML = "<i class='fas fa-sun' style='color:#f1c40f'></i>";
+                    }
+                    else if (temp_status == "Clouds") {
+                        weather.innerHTML = "<i class='fas fa-cloud' style='color:#2980b9'></i>";
+                    }
+                    else if (temp_status == "Rainy") {
+                        weather.innerHTML =
+                            "<i class='fas fa-cloud-rain' style='color:#34495e'></i>";
+                    }
+                    else {
+                        weather.innerHTML = "<i class='fas fa-cloud' style='color:#3498db'></i>";
+                    }
+                }
+                catch {
+                    alert("Enter Proper City Name");
+                }
+            }
+            else {
+                alert("Enter the city name");
+            }
+        }
+
+
+        // Day
+        const getDay = () => {
+            arr = [
+                "Sunday",
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+            ];
+            let day = new Date();
+            let currDay = arr[day.getDay()];
+            return currDay;
+        };
+        let currDay = getDay();
+
+        // Month
+        const getMonth = () => {
+            var monthArr = [
+                "Jan",
+                "Feb",
+                "Mar",
+                "Apr",
+                "May",
+                "Jun",
+                "Jul",
+                "Aug",
+                "Sep",
+                "Oct",
+                "Nov",
+                "Dec",
+            ];
+
+            let d = new Date();
+            let month = monthArr[d.getMonth()];
+            let day = d.getDate();
+
+            let hr = d.getHours();
+            let min = d.getMinutes();
+
+            if (hr >= 12) hr -= 12;
+            if (min < 10) min = "0" + min;
+
+            let time = `${hr}:${min}`;
+            return `${month} ${day} | ${time}`;
+        };
+        let month = getMonth();
+
+        date.innerText = `${currDay.substr(0, 3)} | ${month}`;
+    </script>
+</body>
+
+</html>

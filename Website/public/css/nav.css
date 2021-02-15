@@ -1,0 +1,67 @@
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2c2c54;
+}
+nav .logo {
+  color: #f7f1e3;
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  font-size: 1.2rem;
+}
+nav .logo .fa-snowflake {
+  margin-right: 10px;
+  margin-left: 10px;
+  animation: rotate-360 3s linear infinite;
+}
+
+@keyframes rotate-360 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+nav .nav-items {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 1rem;
+  list-style: none;
+}
+nav .nav-items .nav-item a {
+  color: #f7f1e3;
+  text-decoration: none;
+  position: relative;
+}
+nav .nav-items .nav-item a::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #f7f1e3;
+  transition: 0.3s;
+}
+nav .nav-items .nav-item a:hover::after {
+  width: 100%;
+}
+
+@media screen and (max-width: 700px) {
+  nav {
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  nav .nav-items {
+    width: 70%;
+    justify-content: space-between;
+  }
+}

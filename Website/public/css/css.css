@@ -1,0 +1,196 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Poppins";
+  font-size: 62.5%;
+  background: #d1d8e0;
+}
+
+/* MAIN BODY */
+main {
+  margin: 0 auto;
+  margin-top: 100px;
+  width: 90%;
+  height: 40vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px 5px;
+  /* background: rebeccapurple; */
+}
+main .info {
+  width: 50%;
+  height: 100%;
+  /* background: red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main .slider {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+main .slider .slide {
+  display: flex;
+  width: 300%;
+  height: 100%;
+  animation: 18s slide infinite;
+}
+main .slider .slide img {
+  width: 32%;
+  margin-right: 20px;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0%);
+  }
+  20% {
+    transform: translateX(-33%);
+  }
+  35% {
+    transform: translateX(-33%);
+  }
+  55% {
+    transform: translateX(-67%);
+  }
+  75% {
+    transform: translateX(-33%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+main .info h1 {
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+}
+main .info .names {
+  font-size: 3.5rem;
+  letter-spacing: 4px;
+  font-family: "Sacramento";
+}
+main .info .names::after {
+  content: "Think";
+  color: #2c3e50;
+  animation: 18s names infinite;
+}
+@keyframes names {
+  0% {
+    content: "Think";
+    color: #706fd3;
+  }
+  35% {
+    content: "Plan";
+    color: #27ae60;
+  }
+  55% {
+    content: "Build";
+    color: #3c6382;
+  }
+  66% {
+    content: "Build";
+    color: #6ab04c;
+  }
+  75% {
+    content: "Plan";
+    color: #cd6133;
+  }
+  100% {
+    content: "Think";
+    color: #706fd3;
+  }
+}
+/* ABOUT PAGE */
+.about {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.about_owner {
+  font-size: 1.9rem;
+  word-spacing: 2px;
+  color: #2f3542;
+}
+.about_owner .owner_name {
+  color: #535c68;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  display: inline-block;
+  text-shadow: 0 3px 2px rgb(0, 0, 0);
+  animation: size 1.5s linear infinite;
+}
+@keyframes size {
+  0% {
+    transform: scale(1);
+  }
+  20% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.2);
+  }
+  60% {
+    transform: scale(1.1);
+  }
+  80% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.about_owner .owner_name:after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #777;
+  transition: 0.3s;
+}
+.about_owner .owner_name:hover::after {
+  width: 100%;
+}
+.about .about_head {
+  font-size: 1.3rem;
+  color: #2f3542;
+}
+.about .technologies {
+  font-family: "Sacramento";
+  font-size: 4rem;
+  color: #3c6382;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 2px #00000063;
+}
+.about .technologies::after {
+  content: "EXPRESS";
+  animation: tech 9s linear infinite;
+}
+@keyframes tech {
+  0% {
+    content: "EXPRESS";
+  }
+  20% {
+    content: "NODE";
+  }
+  60% {
+    content: "CSS";
+  }
+  80% {
+    content: "HTML";
+  }
+}
+
+/* Weather */

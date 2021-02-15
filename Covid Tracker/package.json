@@ -1,0 +1,18 @@
+{
+  "name": "covid-tracker",
+  "version": "1.0.0",
+  "description": "This wesite will tell u the info of novel covid on all countries",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "yash-netankar",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "hbs": "^4.1.1",
+    "nodemon": "^2.0.7",
+    "novelcovid": "^3.0.0"
+  }
+}
